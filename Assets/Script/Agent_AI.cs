@@ -8,10 +8,12 @@ public class Agent_AI : MonoBehaviour
     public List<Transform> wayPoint;
     NavMeshAgent navMeshAgent;
     public int currentWaypointIndex = 0;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,5 +37,6 @@ public class Agent_AI : MonoBehaviour
         }
 
         navMeshAgent.SetDestination(wayPoint[currentWaypointIndex].position);
+        anim.SetBool("Move", true);
     }
 }
